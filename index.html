@@ -269,11 +269,13 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 .trust-ico{font-size:1.1rem}
 .hero-right{
   position:relative;opacity:0;animation:fu 1s .5s forwards;
+  display:flex;flex-direction:column;
 }
 .hero-card-main{
   background:var(--dark2);
   border:1px solid rgba(30,143,255,.2);
   padding:36px;position:relative;overflow:hidden;
+  flex:1;
 }
 .hero-card-main::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -307,18 +309,25 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 .hci-label{font-size:.7rem;letter-spacing:1px;color:rgba(232,244,255,.4);text-transform:uppercase}
 .hci-val{font-size:.95rem;font-weight:500;margin-top:1px}
 .hero-card-float{
-  position:absolute;bottom:-20px;right:-20px;
+  position:relative;
+  margin-top:14px;
   background:var(--dark3);border:1px solid rgba(30,143,255,.3);
-  padding:18px 22px;z-index:2;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  border-top:2px solid var(--blue);
+  padding:16px 22px;z-index:2;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  display:flex;align-items:center;gap:20px;
 }
 .hcf-num{
   font-family:'Unbounded',monospace;font-size:2.4rem;font-weight:900;
   color:var(--blue);line-height:1;
   text-shadow:0 0 30px rgba(30,143,255,.4);
 }
-.hcf-label{font-size:.7rem;color:var(--white-dim);letter-spacing:2px;margin-top:3px}
-.stars-row{display:flex;gap:2px;margin-top:6px;font-size:.9rem}
+.hcf-label{font-size:.65rem;color:var(--white-dim);letter-spacing:2px;margin-top:3px;text-transform:uppercase}
+.stars-row{display:flex;gap:2px;margin-top:5px;font-size:.82rem}
+.hcf-divider{width:1px;background:rgba(30,143,255,.2);align-self:stretch;margin:0 18px}
+.hcf-right{display:flex;flex-direction:column;justify-content:center;gap:4px}
+.hcf-rt{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:2px;color:rgba(30,143,255,.5);text-transform:uppercase}
+.hcf-rv{font-family:'Unbounded',sans-serif;font-weight:700;font-size:.82rem}
 @keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 /* MARQUEE */
@@ -366,7 +375,7 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 /* SERVICES GRID */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(30,143,255,.07)}
 .svc-card{
-  background:var(--dark2);padding:42px 30px;
+  background:var(--dark2);padding:44px 32px 40px;
   position:relative;overflow:hidden;cursor:pointer;
   transition:background .4s;
 }
@@ -377,7 +386,7 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 }
 .svc-card:hover{background:var(--dark3)}
 .svc-card:hover::before{opacity:1}
-.svc-n{font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:10px;margin-top:16px;letter-spacing:-.5px}
+.svc-n{font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:10px;margin-top:20px;letter-spacing:-.5px}
 .svc-p{font-size:.88rem;color:var(--white-dim);line-height:1.75;font-weight:300}
 .svc-price{
   margin-top:14px;display:inline-block;
@@ -388,10 +397,11 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 .svc-line{position:absolute;bottom:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .5s cubic-bezier(.23,1,.32,1)}
 .svc-card:hover .svc-line{width:100%}
 .svc-icon-wrap{
-  width:56px;height:56px;
+  width:60px;height:60px;
   background:rgba(30,143,255,.08);border:1px solid rgba(30,143,255,.2);
-  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
   transition:all .4s;
+  margin-bottom:6px;
 }
 .svc-card:hover .svc-icon-wrap{background:rgba(30,143,255,.18);border-color:var(--blue);box-shadow:0 0 20px rgba(30,143,255,.2)}
 
@@ -413,14 +423,15 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
 /* PROCESS */
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(30,143,255,.07)}
 .proc-card{
-  background:var(--dark2);padding:40px 24px;text-align:center;
+  background:var(--dark2);padding:44px 28px 52px;text-align:center;
   position:relative;overflow:hidden;transition:background .4s;
 }
 .proc-card:hover{background:var(--dark3)}
 .proc-num{
-  font-family:'Unbounded',sans-serif;font-size:4rem;font-weight:900;
-  color:rgba(30,143,255,.07);line-height:1;
-  position:absolute;top:12px;right:16px;transition:color .4s;
+  font-family:'Unbounded',sans-serif;font-size:5rem;font-weight:900;
+  color:rgba(30,143,255,.06);line-height:1;
+  position:absolute;bottom:10px;right:14px;transition:color .4s;
+  pointer-events:none;
 }
 .proc-card:hover .proc-num{color:rgba(30,143,255,.13)}
 .proc-ico{
@@ -1262,9 +1273,18 @@ nav.scrolled{background:rgba(2,11,20,.95);top:30px}
             </div>
           </div>
           <div class="hero-card-float">
-            <div class="hcf-num">5.0</div>
-            <div class="stars-row">⭐⭐⭐⭐⭐</div>
-            <div class="hcf-label">10 Google Reviews</div>
+            <div>
+              <div class="hcf-num">5.0</div>
+              <div class="stars-row">⭐⭐⭐⭐⭐</div>
+              <div class="hcf-label">Google Rating</div>
+            </div>
+            <div class="hcf-divider"></div>
+            <div class="hcf-right">
+              <div class="hcf-rt">Reviews</div>
+              <div class="hcf-rv">10 Verified</div>
+              <div class="hcf-rt" style="margin-top:6px">Status</div>
+              <div class="hcf-rv" style="color:var(--green)">✓ 5 Stars</div>
+            </div>
           </div>
         </div>
       </div>
